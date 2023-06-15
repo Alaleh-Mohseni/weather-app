@@ -1,5 +1,5 @@
 //  ApiKey
-const apiKey = "c4eb5a798ab04fe0925104554230101";
+const apiKey = "72d74abe68374198bd0174324231506";
 //  header
 const london = document.querySelector("nav ul li:nth-child(1)");
 const doha = document.querySelector("nav ul li:nth-child(2)");
