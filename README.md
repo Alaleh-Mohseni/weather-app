@@ -3,3 +3,4 @@ A Weather forecast app developed with JavaScript ,HTML, CSS, Bootstrap and Weath
 # Preview
 ![first-page-1](https://github.com/Alaleh-Mohseni/weather-app/assets/112727163/d482b0b1-a697-4041-a733-e1156718822d)
 ![first-page-2](https://github.com/Alaleh-Mohseni/weather-app/assets/112727163/66965aed-a004-4025-a482-e88b08d04b13)
+![first-page-3](https://github.com/Alaleh-Mohseni/weather-app/assets/112727163/1688723f-cd3b-4ebf-adea-8479dc1d7846)
