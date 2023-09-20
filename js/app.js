@@ -9,6 +9,7 @@ const textError = document.getElementById("location");
 const errorBox = document.querySelector('.location')
 const temperature = document.querySelector("#temperature");
 const current = document.querySelector("#current");
+const loader = document.querySelector('#loader')
 //  search city
 const search = document.querySelector(".searchBox button");
 const city = document.querySelector(".searchBox input");
@@ -22,6 +23,7 @@ const hourlyWeather = document.querySelector("#hourlyWeather");
 loadNavApi(cities);
 getWeather();
 search.addEventListener("click", searchCity);
+liveLoc.style.display = "none";
 
 // Navigation Api
 function loadNavApi(cities) {
@@ -96,7 +98,7 @@ function currentWeather(data, temp, cur) {
                     </div>
                     <div class="col-xl-4 col-sm-12 row">
                         <div class="col-xl-12 col-sm-0" style="padding-left: 85px;">
-                            <img src="images/cropped-favicon.png" alt="" width="100px" height="100px">
+                            <img src="images/moon.svg" alt="" width="100px" height="100px">
                         </div>
                         <div class="col-xl-6 col-sm-6 d-flex py-3">
                             <i class="fa fa-arrow-up px-2 mt-1" style="color: #ffcb30;"></i>
@@ -253,19 +255,25 @@ function getWeather() {
 
     function success(position) {
         errorBox.style.display = "none";
+        loader.style.display = "none";
+        liveLoc.style.display = "block";
+
         const latitude = position.coords.latitude;
         const longitude = position.coords.longitude;
         const url = `${api}${latitude},${longitude}&days=1&aqi=no&alerts=yes`;
 
-        fetch(url)
-            .then((response) => response.json())
-            .then((data) => {
-                currentWeather(data, temperature, current);
-            });
+        setTimeout(() => {
+            fetch(url)
+                .then((response) => response.json())
+                .then((data) => {
+                    currentWeather(data, temperature, current);
+                });
+        }, 1000)
     }
 
     function error() {
         liveLoc.style.display = "none";
+        loader.style.display = "none";
         textError.innerHTML = `<p class="text-white py-2">Unable to retrieve your location</p>`;
     }
 }
